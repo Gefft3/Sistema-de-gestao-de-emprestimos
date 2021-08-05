@@ -26,5 +26,9 @@ class DatabaseSeeder extends Seeder
         */
         $this->call(VoyagerDatabaseSeeder::class);
         $this->call(VoyagerDummyDatabaseSeeder::class);
+
+        //arquivos gerados pelo seeder de BREADS
+        $this->seedersPath = database_path('seeds').'/breads'.'/';
+        $this->seed('VoyagerDeploymentOrchestratorSeeder');
     }
 }
