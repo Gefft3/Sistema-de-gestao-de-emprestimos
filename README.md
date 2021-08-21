@@ -1,62 +1,125 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Sistema de Apoio e Gestão de empréstimos e doações de equipamentos de Informática para Rede Pública de Ensino da Cidade de Jardim-MS
+###  Projeto criado 
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+ <a href="#-sobre-o-projeto">Sobre</a> •
+ <a href="#-funcionalidades">Funcionalidades</a> •
+ <a href="#-como-executar-o-projeto">Como executar</a> • 
+ <a href="#-tecnologias">Tecnologias</a> •  
+ <a href="#user-content--licença">Licença</a>
 </p>
 
-## About Laravel
+## 💻 Sobre o projeto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Cardapio Web - permite aos clientes consultarem de forma virtual os produtos fornecidos por comércios em geral. Esse projeto visa conhecer como fazer um CRUD básico em Laravel.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ⚙️ Funcionalidades
 
-## Learning Laravel
+- [ ] Os usuários logados tem acesso ao menu administrativo, onde podem:
+  - [ ] gerenciar os produtos disponíveis no cardápio
+  - [ ] gerenciar as categorias dos produtos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- [ ] Os usuários tem acesso a parte pública da aplicação web, onde podem:
+  - [ ] consultar os produtos disponíveis
+  - [ ] efetuar um pedido de produtos por mensagem do whatsapp
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
+## 🚀 Como executar o projeto
 
-## Laravel Sponsors
+### Pré-requisitos
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git](https://git-scm.com), [Laravel](https://laravel.com/docs/8.x/installation) e [Node.js](https://nodejs.org/en/).
 
-### Premium Partners
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+### 🎲 Rodando o Projeto 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+#### Instalando as dependências
+```bash
+# Clone este repositório
+$ git clone <https://github.com/USUARIO/REPOSITORIO.git>
 
-## Contributing
+# Acesse a pasta do projeto no terminal/cmd
+$ cd cardapio-web
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Instale as dependências composer
+$ composer install
 
-## Code of Conduct
+# Instale as dependências npm (frontend)
+$ npm install && npm run dev
+```
+#### Configurando o projeto
+1. Faça uma cópia do arquivo `.env.example` e renomeie para `.env`:
+2. Crie um banco de dados
+> Sugestão MariaDB ou MySQL: definição de collation: **utf8mb4_general_ci**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+3. Configure a conexão com os dados do banco de dados no arquivo `.env`:
+```php  
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=NOMEDOBANCO
+    DB_USERNAME=USUARIO
+    DB_PASSWORD=SENHA
+```
+#### Rodando o servidor
+```bash    
+# Criação de nova chave de criptografia da aplicação:
+php artisan key:generate
+    
+# Criação das tabelas e inserção dos dados no banco de dados:
+php artisan migrate:fresh --force --seed
 
-## Security Vulnerabilities
+# Execute a aplicação em modo de desenvolvimento
+php artisan serve
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# O servidor iniciará na porta:8000 - acesse <http://localhost:8000>
+```
 
-## License
+### 🎲 Acesso ao Projeto (servidor)
+Acesso à área pública da aplicação:
+> **URL:** http://domínio/
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Acesso à área privada da aplicação:
+> **URL:** http://domínio/admin <br/> 
+
+**Criar usuário pelo terminal usando tinker:**
+```bash
+# Executar o tinker
+php artisan tinker
+
+# No tinker: 
+>>> $user = new \App\Models\User;
+>>> $user->email = 'admin@admin.com';
+>>> $user->password = Hash::make('senha'); # altere 'senha' para uma senha forte
+>>> $user->name = 'Nome do Administrator';
+>>> $user->save();
+>>> exit() # sair do tinker
+```
+---
+## 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Laravel](https://laravel.com/docs)
+- [Node.js](https://nodejs.org/en/)
+- [Bootstrap](https://getbootstrap.com/)
+- [JQuery](https://jquery.com/)
+
+As seguintes dependências foram incluidas no projeto:
+- [Módulo de linguagem Português do Brasil (pt_BR) para Laravel](https://github.com/lucascudo/laravel-pt-BR-localization)
+- [Laravel Fortify](https://github.com/laravel/fortify)
+- [Laravel Permission](https://github.com/spatie/laravel-permission)
+- [Laravel UI](https://github.com/laravel/ui)
+---
+## 💪 Como contribuir para o projeto
+
+1. Faça um **fork** do projeto.
+2. Crie uma nova branch com as suas alterações: `git checkout -b my-feature`
+3. Salve as alterações e crie uma mensagem de commit contando o que você fez: `git commit -m "feature: My new feature"`
+4. Envie as suas alterações: `git push origin my-feature`
+
+## 📝 Licença
+
+Este projeto é um software de código aberto licenciado sob a licença [gnu general public license version 3.0 (gplv3)](./LICENSE).
