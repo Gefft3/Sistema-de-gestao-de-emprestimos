@@ -7,5 +7,6 @@ return [
         'pages',
         'posts',
         'categories',
+        'equipments',//tabela criada
     ],
 ];
