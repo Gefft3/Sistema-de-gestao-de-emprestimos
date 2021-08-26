@@ -16,7 +16,9 @@ class VoyagerDeploymentOrchestratorSeeder extends Seeder
      */
     public function run()
     {
-        $this->seed(ProjetosBreadTypeAdded::class);
-        $this->seed(ProjetosBreadRowAdded::class);
+        $this->seed(MaterialsBreadTypeAdded::class);
+        $this->seed(MaterialsBreadRowAdded::class);
+        $this->seed(StudentsBreadTypeAdded::class);
+        $this->seed(StudentsBreadRowAdded::class);
     }
 }

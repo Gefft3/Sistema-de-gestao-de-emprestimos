@@ -7,5 +7,7 @@ return [
         'pages',
         'posts',
         'categories',
+        'students',//tabela criada
+        'materials',//tabela criada
     ],
 ];
