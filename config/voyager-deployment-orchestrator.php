@@ -7,7 +7,8 @@ return [
         'pages',
         'posts',
         'categories',
-        'orders',//tabela criada
+        'orders',//tabelas criadas
         'materials',
+        'studentes',
     ],
 ];

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Facades\Voyager;
 use App\Http\Controllers\MaterialsController;
+use App\Http\Controllers\OrdersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +32,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('home', 'home')->name('home');
+    Route::get('/orders{id}/create',[OrdersController::class,'create'])->name('order.create');
+    Route::POST('/orders/store',[OrdersController::class,'store'])->name('order.store');
+    Route::get('/orders/{id}/edit',[OrdersController::class,'edit'])->name('order.edit');
 
 });
