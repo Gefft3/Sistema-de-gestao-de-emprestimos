@@ -8,5 +8,6 @@ return [
         'posts',
         'categories',
         'orders',//tabela criada
+        'materials',
     ],
 ];

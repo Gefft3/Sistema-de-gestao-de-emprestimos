@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use TCG\Voyager\Facades\Voyager;
+use App\Http\Controllers\MaterialsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +20,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/materials', [MaterialsController::class, 'index'])->name('material.index');
+Route::get('/materials/{id}',[MaterialsController::class, 'show'])->name('material.show');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('home', 'home')->name('home');
+
 });
