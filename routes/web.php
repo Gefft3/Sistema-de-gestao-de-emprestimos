@@ -24,16 +24,19 @@ Route::get('/', function () {
 Route::get('/materials', [MaterialsController::class, 'index'])->name('material.index');
 Route::get('/materials/{id}',[MaterialsController::class, 'show'])->name('material.show');
 
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
 });
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('home', 'home')->name('home');
-    Route::get('/orders{id}/create',[OrdersController::class,'create'])->name('order.create');
+    Route::get('/orders/create/{id}',[OrdersController::class,'create'])->name('order.create');
     Route::POST('/orders/store',[OrdersController::class,'store'])->name('order.store');
-    Route::get('/orders/{id}/edit',[OrdersController::class,'edit'])->name('order.edit');
-
+    Route::get('/orders/edit/{id}',[OrdersController::class,'edit'])->name('order.edit');
 });
