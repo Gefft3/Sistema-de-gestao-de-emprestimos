@@ -6,7 +6,6 @@ use App\Models\Material;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class OrdersController extends Controller
 {
     /**
@@ -46,8 +45,8 @@ class OrdersController extends Controller
         $order->justification = $request->justification;
         $order->reply = '';
         $order->status = 1;
-        $order->id_material = $request->material;
-        $order->id_user = Auth::user()->id;
+        $order->material_id = $request->material;
+        $order->user_id = Auth::user()->id;
         $order->save();
         $material = Material::find($request->material);
         $material->status = 1;

@@ -17,6 +17,7 @@ class CreateMaterialsTable extends Migration
             $table->increments('id');
             $table->text('name');
             $table->text('description');
+            $table->integer('status')->default(0);
             $table->text('serial_number')->nullable();
             $table->text('image')->nullable();
             $table->timestamps();

@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->text('justification')->nullable();
             $table->text('reply');
-            $table->integer('status')->nullable();
+            $table->integer('status')->nullable()->default(0);
             $table->integer('material_id');
             $table->integer('user_id');
             $table->timestamps();

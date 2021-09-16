@@ -55,7 +55,7 @@ class MaterialsBreadRowAdded extends Seeder
                     'data_type_id' => $dataType->id,
                     'field' => 'description',
                     'type' => 'rich_text_box',
-                    'display_name' => 'Description',
+                    'display_name' => 'Descrição',
                     'required' => 1,
                     'browse' => 1,
                     'read' => 1,
@@ -68,9 +68,9 @@ class MaterialsBreadRowAdded extends Seeder
                 3 => 
                 array (
                     'data_type_id' => $dataType->id,
-                    'field' => 'serial_number',
-                    'type' => 'text',
-                    'display_name' => 'Serial Number',
+                    'field' => 'image',
+                    'type' => 'image',
+                    'display_name' => 'Imagem',
                     'required' => 0,
                     'browse' => 1,
                     'read' => 1,
@@ -83,10 +83,10 @@ class MaterialsBreadRowAdded extends Seeder
                 4 => 
                 array (
                     'data_type_id' => $dataType->id,
-                    'field' => 'image',
-                    'type' => 'image',
-                    'display_name' => 'Image',
-                    'required' => 0,
+                    'field' => 'serial_number',
+                    'type' => 'text',
+                    'display_name' => 'Número de Serie',
+                    'required' => 1,
                     'browse' => 1,
                     'read' => 1,
                     'edit' => 1,
@@ -96,6 +96,21 @@ class MaterialsBreadRowAdded extends Seeder
                     'order' => 5,
                 ),
                 5 => 
+                array (
+                    'data_type_id' => $dataType->id,
+                    'field' => 'status',
+                    'type' => 'number',
+                    'display_name' => 'Status',
+                    'required' => 1,
+                    'browse' => 1,
+                    'read' => 1,
+                    'edit' => 1,
+                    'add' => 1,
+                    'delete' => 1,
+                    'details' => '{}',
+                    'order' => 6,
+                ),
+                6 => 
                 array (
                     'data_type_id' => $dataType->id,
                     'field' => 'created_at',
@@ -108,9 +123,9 @@ class MaterialsBreadRowAdded extends Seeder
                     'add' => 0,
                     'delete' => 1,
                     'details' => '{}',
-                    'order' => 6,
+                    'order' => 7,
                 ),
-                6 => 
+                7 => 
                 array (
                     'data_type_id' => $dataType->id,
                     'field' => 'updated_at',
@@ -123,9 +138,9 @@ class MaterialsBreadRowAdded extends Seeder
                     'add' => 0,
                     'delete' => 0,
                     'details' => '{}',
-                    'order' => 7,
+                    'order' => 8,
                 ),
-                7 => 
+                8 => 
                 array (
                     'data_type_id' => $dataType->id,
                     'field' => 'deleted_at',
@@ -138,7 +153,7 @@ class MaterialsBreadRowAdded extends Seeder
                     'add' => 1,
                     'delete' => 1,
                     'details' => '{}',
-                    'order' => 8,
+                    'order' => 9,
                 ),
             ));
         } catch(Exception $e) {

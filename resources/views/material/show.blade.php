@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Detalhes do {{$material->name}}</h1>
-    <form action="" method="post">
+    <form action="{{route('order.create',$material->id)}}" method="GET">
         <div class="container-fluid">
             <div class="row">
                 <ul style='list-style-type: none;'>
