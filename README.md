@@ -11,21 +11,30 @@
 
 ## 💻 Sobre o projeto
 
-Cardapio Web - permite aos clientes consultarem de forma virtual os produtos fornecidos por comércios em geral. Esse projeto visa conhecer como fazer um CRUD básico em Laravel.
+Muitos alunos do curso técnico em informática não possuem equipamentos para estudar em casa. A proposta desse projeto é criar um sistema capaz de gerenciar empréstimos e doações de equipamentos de informática para alunos da rede pública de ensino da cidade de Jardim-MS de forma que a escola assuma o papel de mediador entre aluno e doador, garantido a segurança dos envolvidos e o bom aproveitamento do equipamento.
 
 ---
 
 ## ⚙️ Funcionalidades
 
-- [ ] Os usuários logados tem acesso ao menu administrativo, onde podem:
-  - [ ] gerenciar os produtos disponíveis no cardápio
-  - [ ] gerenciar as categorias dos produtos
+- [X] Os usuários logados tem acesso ao menu administrativo, onde podem:
+  - [X] Ver equipamentos disponíveis
+  - [X] Solicitar empréstimos
 
-- [ ] Os usuários tem acesso a parte pública da aplicação web, onde podem:
-  - [ ] consultar os produtos disponíveis
-  - [ ] efetuar um pedido de produtos por mensagem do whatsapp
+- [ ] Os usuários gestores tem acesso ao menu administrativo, onde podem:
+  - [X] Gerenciar equipamentos
+  - [ ] Validar Cadastro do usuário
+  - [ ] Analisar solicitação de empréstimo
+  - [ ] Registrar empréstimo do equipamento
+  - [ ] Registrar devolução do equipamento
+  
 
----
+
+- [x] Os usuários tem acesso a parte pública da aplicação web, onde podem:
+  - [x] consultar os equipamentos disponíveis
+  - [x] Logar
+  - [x] Auto-Registro
+--
 ## 🚀 Como executar o projeto
 
 ### Pré-requisitos
@@ -38,10 +47,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 #### Instalando as dependências
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/USUARIO/REPOSITORIO.git>
+$ git clone https://github.com/Gefft3/tcc-ifms-code.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd cardapio-web
+$ cd tcc-ifms-code
 
 # Instale as dependências composer
 $ composer install
@@ -67,7 +76,10 @@ $ npm install && npm run dev
 ```bash    
 # Criação de nova chave de criptografia da aplicação:
 php artisan key:generate
-    
+
+#Criação do link simbólico:
+php artisan storage:link
+
 # Criação das tabelas e inserção dos dados no banco de dados:
 php artisan migrate:fresh --force --seed
 
