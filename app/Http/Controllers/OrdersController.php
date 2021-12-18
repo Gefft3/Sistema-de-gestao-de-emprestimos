@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use TCG\Voyager\Facades\Voyager;
 use App\Models\Material;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -15,7 +16,6 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        //
 
     }
 

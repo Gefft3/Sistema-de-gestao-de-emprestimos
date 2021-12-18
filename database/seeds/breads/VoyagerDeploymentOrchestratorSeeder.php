@@ -20,5 +20,7 @@ class VoyagerDeploymentOrchestratorSeeder extends Seeder
         $this->seed(MaterialsBreadRowAdded::class);
         $this->seed(StudentsBreadTypeAdded::class);
         $this->seed(StudentsBreadRowAdded::class);
+        $this->seed(OrdersBreadTypeAdded::class);
+        $this->seed(OrdersBreadRowAdded::class);
     }
 }

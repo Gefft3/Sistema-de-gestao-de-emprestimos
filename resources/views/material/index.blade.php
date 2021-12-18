@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
-
 @section('content')
 <div>
-    <h1>Lista de Materiais</h1>
+    <h1>Lista de materiais disponíveis</h1>
 </div>
 
 <div class="container-fluid">

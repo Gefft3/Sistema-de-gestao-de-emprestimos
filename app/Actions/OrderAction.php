@@ -2,7 +2,11 @@
 
 namespace App\Actions;
 
+
+use App\Models\Material;
+use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use TCG\Voyager\Actions\AbstractAction;
+
 
 class OrderAction extends AbstractAction
 {
@@ -27,20 +31,22 @@ class OrderAction extends AbstractAction
         if($this->data->status == 0){
             return [
                 'class' => 'btn btn-info',
-                'onclick' => "return validationBtn()",
+                'onclick' => "return validationBtn()"
             ];
         }
         return [
             'class' => 'btn btn-success',
-            'onclick' => "alert('Esse equipamento já foi solicitado')",
+            'onclick' => "alert('Este produto já foi solicitado')",
+
         ];
-
-
     }
 
     public function getDefaultRoute()
     {
-        return route('order.create', $this->data->id);
+        if($this->data->status == 0){
+            return route('order.create', $this->data->id);
+        }
+        return redirect("admin/materials");
     }
 
     public function shouldActionDisplayOnDataType()

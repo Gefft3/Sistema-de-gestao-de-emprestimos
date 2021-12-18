@@ -15,7 +15,9 @@ class MaterialsController extends Controller
     public function index()
     {
         //
-        $materials = Material::get();
+        $materials = Material::where('status', 0)
+                            ->orderBy('name')
+                            ->get();
 
         return view('material.index', compact('materials'));
     }

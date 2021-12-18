@@ -18,7 +18,8 @@ use App\Http\Controllers\OrdersController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect()->route('material.index');
 });
 
 Route::get('/materials', [MaterialsController::class, 'index'])->name('material.index');
@@ -36,6 +37,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('home', 'home')->name('home');
+    Route::get('/orders',[OrdersController::class,'index'])->name('order.index');
     Route::get('/orders/create/{id}',[OrdersController::class,'create'])->name('order.create');
     Route::POST('/orders/store',[OrdersController::class,'store'])->name('order.store');
     Route::get('/orders/edit/{id}',[OrdersController::class,'edit'])->name('order.edit');
