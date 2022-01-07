@@ -40,10 +40,9 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //alterar depois
+        //criação de uma solicitação e atualização de status
         $order = new Order();
         $order->justification = $request->justification;
-        $order->reply = '';
         $order->status = 1;
         $order->material_id = $request->material;
         $order->user_id = Auth::user()->id;
@@ -74,6 +73,9 @@ class OrdersController extends Controller
     public function edit($id)
     {
         //
+        $order = Order::find($id);
+
+        return view('order.edit', compact('order'));
     }
 
     /**
@@ -86,6 +88,17 @@ class OrdersController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if (!$order = Order::find($id)) {
+            return redirect()-back();
+        }
+        $order->reply = $request->reply;
+        $order->status = $request->status;
+        $order->save();
+        $material = Material::find($order->material_id);
+        //fazer if depois, id nao pode ficar estatico
+        $material->status = 2;
+        $material->save();
+        return redirect('admin/orders');
     }
 
     /**

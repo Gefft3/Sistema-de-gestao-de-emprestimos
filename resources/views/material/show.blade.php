@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Detalhes do {{$material->name}}</h1>
+<h1>Detalhes de {{$material->name}}</h1>
     <form action="{{route('order.create',$material->id)}}" method="GET">
         <div class="container-fluid">
             <div class="row">

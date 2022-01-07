@@ -28,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
         //
         Schema::defaultStringLength(191);
         Voyager::addAction(\App\Actions\OrderAction::class);
+        Voyager::addAction(\App\Actions\MaterialAction::class);
     }
 }

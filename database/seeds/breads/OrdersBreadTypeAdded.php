@@ -34,8 +34,8 @@ class OrdersBreadTypeAdded extends Seeder
                 'id' => 22,
                 'name' => 'orders',
                 'slug' => 'orders',
-                'display_name_singular' => 'Order',
-                'display_name_plural' => 'Orders',
+                'display_name_singular' => 'Solicitação',
+                'display_name_plural' => 'Solicitações',
                 'icon' => 'voyager-refresh',
                 'model_name' => 'App\\Models\\Order',
                 'policy_name' => NULL,
@@ -45,7 +45,7 @@ class OrdersBreadTypeAdded extends Seeder
                 'server_side' => 0,
                 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2021-12-18 19:53:08',
-                'updated_at' => '2021-12-18 20:02:10',
+                'updated_at' => '2021-12-26 09:40:37',
             ));
 
             
@@ -57,7 +57,7 @@ class OrdersBreadTypeAdded extends Seeder
 
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
-                'title' => 'Orders',
+                'title' => 'Solicitações',
                 'url' => '',
                 'route' => 'voyager.orders.index',
             ]);

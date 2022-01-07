@@ -35,7 +35,7 @@ class MaterialsBreadTypeAdded extends Seeder
                 'name' => 'materials',
                 'slug' => 'materials',
                 'display_name_singular' => 'Material',
-                'display_name_plural' => 'Materials',
+                'display_name_plural' => 'Materiais',
                 'icon' => 'voyager-laptop',
                 'model_name' => 'App\\Models\\Material',
                 'policy_name' => NULL,
@@ -45,7 +45,7 @@ class MaterialsBreadTypeAdded extends Seeder
                 'server_side' => 0,
                 'details' => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
                 'created_at' => '2021-09-14 02:32:56',
-                'updated_at' => '2021-12-18 20:12:14',
+                'updated_at' => '2021-12-30 20:43:02',
             ));
 
             
@@ -57,7 +57,7 @@ class MaterialsBreadTypeAdded extends Seeder
 
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
-                'title' => 'Materials',
+                'title' => 'Materiais',
                 'url' => '',
                 'route' => 'voyager.materials.index',
             ]);

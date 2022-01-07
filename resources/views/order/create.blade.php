@@ -8,5 +8,5 @@
         <h3>Justifique por que precisa do {{$material->name}}:</h3>
         <textarea name="justification" cols="30" rows="10"></textarea>
         <button class='btn btn-success' type="submit">Reservar</button>
-    </form>
+</form>
 @endsection
