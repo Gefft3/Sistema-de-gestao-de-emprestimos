@@ -95,8 +95,11 @@ class OrdersController extends Controller
         $order->status = $request->status;
         $order->save();
         $material = Material::find($order->material_id);
-        //fazer if depois, id nao pode ficar estatico
-        $material->status = 2;
+        if ($request->status==2) {
+            $material->status = 2;
+        }else{
+            $material->status = 0;
+        }
         $material->save();
         return redirect('admin/orders');
     }

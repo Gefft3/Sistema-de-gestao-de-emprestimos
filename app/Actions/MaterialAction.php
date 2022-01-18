@@ -34,7 +34,7 @@ class MaterialAction extends AbstractAction
         }
         return [
             'class' => 'btn btn-success',
-            'onclick' => "alert('Este produto já foi solicitado')",
+            'onclick' => "alert('Este equipamento já foi solicitado')",
 
         ];
     }
@@ -49,6 +49,7 @@ class MaterialAction extends AbstractAction
 
     public function shouldActionDisplayOnDataType()
     {
-        return $this->dataType->slug == 'materials';
+
+            return $this->dataType->slug == 'materials';
     }
 }

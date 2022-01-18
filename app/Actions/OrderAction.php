@@ -47,9 +47,9 @@ class OrderAction extends AbstractAction
 
     public function shouldActionDisplayOnDataType()
     {
-        //em solicitação já tem opção para fazer o empréstimo
         //em solicitações fazer botão de devolução
-            return $this->dataType->slug == 'orders';
+        return $this->dataType->slug == 'orders';
+
 
 
     }

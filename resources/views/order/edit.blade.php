@@ -36,9 +36,8 @@
               </select>
         </div>
       </div>
-
+      <button type="submit" class="btn btn-primary">Finalizar</button>
 </div>
-    <button type="submit" class="btn btn-primary">Finalizar</button>
 </form>
 @endsection
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoansController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use TCG\Voyager\Facades\Voyager;
@@ -37,9 +38,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('home', 'home')->name('home');
-    Route::put('/orders/edit/update/{id}',[OrdersController::class,'update'])->name('order.update');
-    Route::get('/orders/edit/{id}',[OrdersController::class,'edit'])->name('order.edit');
     Route::get('/orders',[OrdersController::class,'index'])->name('order.index');
-    Route::get('/orders/create/{id}',[OrdersController::class,'create'])->name('order.create');
     Route::post('/orders/store',[OrdersController::class,'store'])->name('order.store');
+    Route::get('/orders/create/{id}',[OrdersController::class,'create'])->name('order.create');
+    Route::get('/orders/edit/{id}',[OrdersController::class,'edit'])->name('order.edit');
+    Route::put('/orders/edit/update/{id}',[OrdersController::class,'update'])->name('order.update');
+
+    Route::get('/loan/{id}',[LoansController::class,'create'])->name('loan.create');
+    Route::post('/loan/store',[LoansController::class,'store'])->name('loan.store');
+    Route::get('/loans/edit/{id}',[LoansController::class,'edit'])->name('loan.edit');
+    Route::put('/loans/edit/update/{id}',[LoansController::class,'update'])->name('loan.update');
+
 });
