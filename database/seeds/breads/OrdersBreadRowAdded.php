@@ -77,7 +77,7 @@ class OrdersBreadRowAdded extends Seeder
                     'edit' => 1,
                     'add' => 1,
                     'delete' => 1,
-                    'details' => '{"default":"1","options":{"1":"Solicitado","2":"Aprovado","3":"Rejeitado","4":"Empr\\u00e9stimo realizado"}}',
+                    'details' => '{"default":"1","options":{"1":"Solicitado","2":"Aprovado","3":"Rejeitado","4":"Empr\\u00e9stimo realizado","5":"Devolu\\u00e7\\u00e3o realizada"}}',
                     'order' => 4,
                 ),
                 4 => 

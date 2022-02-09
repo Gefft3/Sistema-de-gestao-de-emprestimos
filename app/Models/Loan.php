@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Loan extends Model
 {
     protected $fillable = [
-        'equipment',
+        'description',
         'withdrawal_at',
         'returned_at',
         'employee_loan',

@@ -20,7 +20,7 @@ class LoansController extends Controller
         $user_id = Auth::user()->id;
         $material = Material::find($request->material);
         $loan = new Loan();
-        $loan->equipment = $material->name . ' Solicitado por ' . Auth::user()->name;
+        $loan->description = $material->name . ' Solicitado por ' . Auth::user()->name;
         $loan->withdrawal_at = $request->date;
         $loan->returned_at = null;
         $loan->employee_returned = null;
@@ -39,14 +39,25 @@ class LoansController extends Controller
     public function edit($id){
         $order = Order::find($id);
         $material = Material::find($order->material_id);
-        return view('loan.edit', compact('order','material'));
+        $loan = Loan::where('order_id', $id)->first();
+        return view('loan.edit', compact('order','material','loan'));
     }
 
     public function update(Request $request, $id){
         $order = Order::find($id);
         $material = Material::find($order->material_id);
         $loan = Loan::where('order_id', $id)->first();
-        dd($loan);
+        $user_id = Auth::user()->id;
+        $loan->returned_at = $request->date_return;
+        $loan->employee_returned = $user_id;
+        $loan->obs = $request->obs;
+        $loan->save();
+        $order = Order::find($request->order);
+        $order->status = 5;
+        $order->save();
+        $material->status = 0;
+        $material->save();
+        return redirect('admin/orders');
     }
 
 

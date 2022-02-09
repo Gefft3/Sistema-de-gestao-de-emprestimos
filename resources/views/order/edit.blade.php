@@ -14,7 +14,7 @@
         <div class="card-body">
             <div class="mb-3">
                 <label for="justificativa" class="control-label">Justificativa</label>
-                <textarea readonly class="form-control" rows="3" style="height: 200px; width: 500px">{{$order->justification}}</textarea>
+                {!!$order->justification!!}
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         <div class="card-body">
             <div class="mb-3">
                 <label for="resposta" class="control-label">Resposta</label>
-                <textarea class="form-control" name="reply" rows="3" style="height: 200px; width: 500px"></textarea>
+                <textarea class="form-control richTextBox" name="reply" rows="3" style="height: 100px;"></textarea>
             </div>
         </div>
     </div>
@@ -40,7 +40,17 @@
 </div>
 </form>
 @endsection
+@push('javascript')
+    <script>
+        $(document).ready(function() {
+            var additionalConfig = {
+                selector: 'textarea.richTextBox[name="reply"]',
+            }
 
+            $.extend(additionalConfig, {!! json_encode($options->tinymceOptions ?? '{}') !!})
 
-
+            tinymce.init(window.voyagerTinyMCE.getConfig(additionalConfig));
+        });
+    </script>
+@endpush
 
