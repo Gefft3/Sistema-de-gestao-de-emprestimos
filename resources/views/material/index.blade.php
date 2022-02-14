@@ -12,7 +12,7 @@
     <img src="{{Voyager::image($material->image)}}" class="card-img-top" alt="imagem do equipamento">
     <div class="card-body">
       <h5 class="card-title">{{$material->name}}</h5>
-      <p class="card-text">{!!$material->description!!}</p>
+      <!--<p class="card-text">{!!$material->description!!}</p>-->
       <a href="{{ route('material.show', $material->id) }}" class="btn btn-primary">Ver Material</a>
     </div>
   </div>
