@@ -16,6 +16,10 @@
                 <label for="justificativa" class="control-label">Justificativa</label>
                 {!!$order->justification!!}
             </div>
+            <div class="mb-3">
+                <label for="justificativa" class="control-label">Dados do solicitante</label>
+                {!!$student->name!!}
+            </div>
         </div>
     </div>
 <hr>

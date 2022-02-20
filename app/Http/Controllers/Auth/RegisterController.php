@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Student;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -51,8 +52,12 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'ends_with:ifms.edu.br'],
+            'cpf' => ['required', 'string', 'max:11', 'unique:students'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'course' => ['required'],
+            'course_period' => ['required'],
+            'cell_number' => ['required'],
         ]);
     }
 
@@ -64,10 +69,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+         Student::create([
+            'name' => $data['name'],
+            'cpf' => $data['cpf'],
+            'cell_number' => $data['cell_number'],
+            'course_period' => $data['course_period'],
+            'course' => $data['course'],
+            'name_responsible' => $data['name_responsible'],
+            'cpf_responsible' => $data['cpf_responsible'],
+            'cell_number_responsible' => $data['cell_number_responsible'],
+            'user_id' => $user->id
+        ]);
+        return $user;
     }
 }
+//cpf, cell_number, course_period, course, name_responsible, cpf_responsible, cell_number_responsible

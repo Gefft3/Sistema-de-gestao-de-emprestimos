@@ -24,9 +24,126 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="cpf" class="col-md-4 col-form-label text-md-right" >CPF</label>
+
+                            <div class="col-md-6">
+                                <input id="cpf" type="number" class="form-control @error('cpf') is-invalid @enderror" name="cpf" value="{{ old('cpf') }}" required autocomplete="cpf" autofocus placeholder="Somente números">
+
+                                @error('cpf')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cell_number" class="col-md-4 col-form-label text-md-right">Celular</label>
+
+                            <div class="col-md-6">
+                                <input id="cell_number" type="number" class="form-control @error('cell_number') is-invalid @enderror" name="cell_number" value="{{ old('cell_number') }}" required autocomplete="cell_number" autofocus>
+
+                                @error('cell_number')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="course" class="col-md-4 col-form-label text-md-right">Curso</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" name="course" id="course" @error('course') is-invalid @enderror" aria-label="Default select example" value="{{ old('course') }}" required autocomplete="course" autofocus>
+                                    <option selected value="0">Selecione um curso</option>
+                                    <option value="1">Técnico em Edificações</option>
+                                    <option value="2">Técnico em Informática</option>
+                                    <option value="3">Arquitetura e Urbanismo</option>
+                                    <option value="4">Licenciatura em Computação</option>
+                                    <option value="5">Especialização em Docência</option>
+                                    <option value="6">Edificações PROEJA</option>
+                                    <option value="7">Informática para Internet</option>
+                                    <option value="8">Manutenção e Suporte em Informática</option>
+                                    <option value="9">Desenhista da Construção Civil</option>
+                                    <option value="10">Operador de computador</option>
+                                    <option value="11">Administração</option>
+                                  </select>
+
+
+                                @error('course')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="course_period" class="col-md-4 col-form-label text-md-right">Período</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" name="course_period" id="course_period" @error('course_period') is-invalid @enderror" aria-label="Default select example" value="{{ old('course_period') }}" required autocomplete="course_period" autofocus>
+                                    <option selected value="0">Selecione um semestre</option>
+                                    <option value="1">Primeiro semestre</option>
+                                    <option value="2">Segundo semestre</option>
+                                    <option value="3">Terceiro semestre</option>
+                                    <option value="4">Quarto semestre</option>
+                                    <option value="5">Quinto semestre</option>
+                                    <option value="6">Sexto semestre</option>
+                                    <option value="7">Sétimo semestre</option>
+                                    <option value="8">Oitavo semestre</option>
+                                    <option value="9">Nono semestre</option>
+                                    <option value="10">Décimo semestre</option>
+                                  </select>
+
+                                @error('course_period')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name_responsible" class="col-md-4 col-form-label text-md-right">Nome do responsável</label>
+
+                            <div class="col-md-6">
+                                <input id="name_responsible" type="text" class="form-control @error('name_responsible') is-invalid @enderror" name="name_responsible" value="{{ old('name_responsible') }}" required autocomplete="name_responsible" autofocus>
+
+                                @error('name_responsible')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cell_number_responsible" class="col-md-4 col-form-label text-md-right">Celular do responsável</label>
+
+                            <div class="col-md-6">
+                                <input id="cell_number_responsible" type="number" class="form-control @error('cell_number_responsible') is-invalid @enderror" name="cell_number_responsible" value="{{ old('cell_number_responsible') }}" required autocomplete="cell_number_responsible" autofocus>
+
+                                @error('cell_number_responsible')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cpf_responsible" class="col-md-4 col-form-label text-md-right">CPF do responsável</label>
+
+                            <div class="col-md-6">
+                                <input id="cpf_responsible" type="text" class="form-control @error('cpf_responsible') is-invalid @enderror" name="cpf_responsible" value="{{ old('cpf_responsible') }}" required autocomplete="cpf_responsible" autofocus>
+
+                                @error('cpf_responsible')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">

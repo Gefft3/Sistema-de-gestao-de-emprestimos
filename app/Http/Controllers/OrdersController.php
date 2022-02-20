@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use TCG\Voyager\Facades\Voyager;
 use App\Models\Material;
 use App\Models\Order;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class OrdersController extends Controller
@@ -34,8 +35,9 @@ class OrdersController extends Controller
     {
         //
         $order = Order::find($id);
+        $student = Student::where('user_id', $id)->first();
 
-        return view('order.edit', compact('order'));
+        return view('order.edit', compact('order','student'));
     }
     public function update(Request $request, $id)
     {
