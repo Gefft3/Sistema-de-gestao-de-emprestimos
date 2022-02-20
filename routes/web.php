@@ -27,15 +27,18 @@ Route::get('/materials/{id}',[MaterialsController::class, 'show'])->name('materi
 
 
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
 
-});
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
+
+    Route::group(['prefix' => 'admin'], function () {
+        Voyager::routes();
+
+    });
+
     Route::view('home', 'home')->name('home');
     Route::get('/orders',[OrdersController::class,'index'])->name('order.index');
     Route::post('/orders/store',[OrdersController::class,'store'])->name('order.store');
