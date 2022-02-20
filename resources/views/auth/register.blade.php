@@ -24,6 +24,21 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email acadêmico">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="cpf" class="col-md-4 col-form-label text-md-right" >CPF</label>
 
@@ -41,7 +56,7 @@
                             <label for="cell_number" class="col-md-4 col-form-label text-md-right">Celular</label>
 
                             <div class="col-md-6">
-                                <input id="cell_number" type="number" class="form-control @error('cell_number') is-invalid @enderror" name="cell_number" value="{{ old('cell_number') }}" required autocomplete="cell_number" autofocus>
+                                <input id="cell_number" type="number" class="form-control @error('cell_number') is-invalid @enderror" name="cell_number" value="{{ old('cell_number') }}" required autocomplete="cell_number" autofocus placeholder="(99) 99999-9999">
 
                                 @error('cell_number')
                                     <span class="invalid-feedback" role="alert">
@@ -119,7 +134,7 @@
                             <label for="cell_number_responsible" class="col-md-4 col-form-label text-md-right">Celular do responsável</label>
 
                             <div class="col-md-6">
-                                <input id="cell_number_responsible" type="number" class="form-control @error('cell_number_responsible') is-invalid @enderror" name="cell_number_responsible" value="{{ old('cell_number_responsible') }}" required autocomplete="cell_number_responsible" autofocus>
+                                <input id="cell_number_responsible" type="number" class="form-control @error('cell_number_responsible') is-invalid @enderror" name="cell_number_responsible" value="{{ old('cell_number_responsible') }}" required autocomplete="cell_number_responsible" autofocus placeholder="(99) 99999-9999">
 
                                 @error('cell_number_responsible')
                                     <span class="invalid-feedback" role="alert">
@@ -132,7 +147,7 @@
                             <label for="cpf_responsible" class="col-md-4 col-form-label text-md-right">CPF do responsável</label>
 
                             <div class="col-md-6">
-                                <input id="cpf_responsible" type="text" class="form-control @error('cpf_responsible') is-invalid @enderror" name="cpf_responsible" value="{{ old('cpf_responsible') }}" required autocomplete="cpf_responsible" autofocus>
+                                <input id="cpf_responsible" type="text" class="form-control @error('cpf_responsible') is-invalid @enderror" name="cpf_responsible" value="{{ old('cpf_responsible') }}" required autocomplete="cpf_responsible" autofocus placeholder="Somente números">
 
                                 @error('cpf_responsible')
                                     <span class="invalid-feedback" role="alert">
@@ -142,19 +157,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

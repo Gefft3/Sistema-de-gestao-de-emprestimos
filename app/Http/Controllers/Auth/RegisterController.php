@@ -53,11 +53,13 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'ends_with:ifms.edu.br'],
-            'cpf' => ['required', 'string', 'max:11', 'unique:students'],
+            'cpf' => ['required', 'string', 'cpf','max:11', 'unique:students'],
+            'cpf_responsible' => ['required', 'string', 'cpf', 'max:11'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'course' => ['required'],
             'course_period' => ['required'],
-            'cell_number' => ['required'],
+            'cell_number' => ['required','celular_com_ddd'],
+            'cell_number_responsible' => ['required','celular_com_ddd'],
         ]);
     }
 
