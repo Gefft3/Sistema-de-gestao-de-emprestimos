@@ -13,12 +13,17 @@
     <div class="card">
         <div class="card-body">
             <div class="mb-3">
-                <label for="justificativa" class="control-label">Justificativa</label>
-                {!!$order->justification!!}
+                <h4 class="">Dados do solicitante</h4>
+                <strong>Nome: </strong>{!!$student->name!!} <br>
+                <strong>Email: </strong>{!!$user->email!!} <br>
+                <strong>Celular: </strong>{!!$student->cell_number!!} <br>
+                <strong>Curso: </strong>{!!$student->course()!!} <br>
+                <strong>Período: </strong>{!!$student->course_period!!} <br>
+
             </div>
             <div class="mb-3">
-                <label for="justificativa" class="control-label">Dados do solicitante</label>
-                {!!$student->name!!}
+                <h4 class="">Justificativa</h4>
+                {!!$order->justification!!}
             </div>
         </div>
     </div>

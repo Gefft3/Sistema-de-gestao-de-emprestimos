@@ -6,6 +6,7 @@ use TCG\Voyager\Facades\Voyager;
 use App\Models\Material;
 use App\Models\Order;
 use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class OrdersController extends Controller
@@ -35,9 +36,10 @@ class OrdersController extends Controller
     {
         //
         $order = Order::find($id);
-        $student = Student::where('user_id', $id)->first();
-
-        return view('order.edit', compact('order','student'));
+        $student = Student::where('user_id', $order->user_id)->first();
+        $user = User::where('id', $order->user_id)->first();
+        //dd($student,$order);
+        return view('order.edit', compact('order','student','user'));
     }
     public function update(Request $request, $id)
     {
