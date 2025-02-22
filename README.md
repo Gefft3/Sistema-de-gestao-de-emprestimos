@@ -21,7 +21,7 @@ Muitos alunos do curso técnico em informática não possuem equipamentos para e
   - [X] Ver equipamentos disponíveis
   - [X] Solicitar empréstimos
 
-- [ ] Os usuários gestores tem acesso ao menu administrativo, onde podem:
+- [X] Os usuários gestores tem acesso ao menu administrativo, onde podem:
   - [X] Gerenciar equipamentos
   - [X] Validar Cadastro do usuário
   - [X] Analisar solicitação de empréstimo
